@@ -2561,16 +2561,12 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.cart = function () {
   var addCart = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.features-d');
   var btn = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('#clearcart');
   var see = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('#checkout');
-  var hamburger = Object(_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger-toggle');
-  var nav = document.querySelector('.hamburger-nav'); // var close = '<span class="fa fa-cart-arrow-down" style="font-size:36px"></span>';
-
   addCart.click(function (event) {
-    var target = event.target;
-    console.log(this.innerText);
+    let target = event.target;
     it = this.innerText;
-    var sum = 0;
-    var cartItem = '<div class="pos">' + it + '<span class="fa fa-cart-arrow-down" style="font-size:36px"></span></div>'; // var cartItem ='<div class="pos">'+ it + close +'</div>';
-
+    let sum = 0;
+    let price = 0;
+    let cartItem = '<div class="pos">' + it + '<span class="fa fa-cart-arrow-down" style="font-size:36px"></span></div>';
     arr.push(cartItem);
     see.fadeIn(1000);
     btn.fadeIn(200);
@@ -2581,16 +2577,14 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.cart = function () {
 
       item.append(div);
       item2.remove();
-      div.click(function () {
-        // cartItem.remove();
-        console.log('hello');
-      });
-    }, 400);
+    }, 200);
 
     if (target) {
       price = parseFloat(it.split('$')[1]);
       cart.push(price);
     }
+
+    console.log(price);
 
     for (var i = 0; i < cart.length; i++) {
       if (cart.length > 1) {
